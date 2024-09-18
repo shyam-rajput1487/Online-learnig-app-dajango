@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text to Image Generator</title>
+</head>
+<body>
+    <h1>Text to Image Generator</h1>
+    <form action="/generate_image/" method="post">
+        {% csrf_token %}
+        <label for="text_input">Enter the text to generate the image:</label><br>
+        <textarea id="text_input" name="text_input" rows="4" cols="50"></textarea><br><br>
+        <input type="submit" value="Generate Image">
+    </form>
+    
+    <!-- This is where the generated image will be displayed -->
+    <div id="generated_image"></div>
+</body>
+</html>
