@@ -1,0 +1,48 @@
+{% extends "parent.html"%}
+{% block body %}
+
+<h1 style="text-align: center; color: blue;"> Login Form </h1>
+{% if messages %}
+{% for message in messages %}
+<p style="color: green;text-align: center;">{{message}}</p>
+
+{% endfor %}
+{% endif %}
+<form action="{%url 'nouapp:login' %}" class="form-group" method="POST">   
+    {% csrf_token %}
+<table class="table" style="width: 80%;margin: auto;" >
+    <tr>
+        <td>Enter user id</td>
+       <td> <input type="text" name="userid" class="form-control"></td>
+    </tr>
+    <tr>
+        <td>Enter password</td>
+        <td>
+            <input type="password" name="password" class="form-control">
+        </td>
+    </tr>
+    <tr>
+        <td>Select user type</td>
+        <td>
+            <select name="usertype" class="form-control">
+                <option selected> --Select user type-- </option>
+                <option value="Student">Student</option>
+                <option value="admin">Admin</option>
+            </select>
+        </td>
+    </tr>
+
+    <tr>
+        <td></td>
+        <td>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </td>
+    </tr>
+
+</table>
+
+</form>
+
+{% endblock %}
+
+
